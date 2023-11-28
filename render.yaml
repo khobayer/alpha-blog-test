@@ -1,6 +1,6 @@
 databases:
   - name: postgresql
-    databaseName: alpha-blog
+    databaseName: alpha_blog_qp2u
     user: alphablog
 
 services:
