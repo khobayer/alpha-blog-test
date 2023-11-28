@@ -1,7 +1,7 @@
 databases:
-  - name: alpha-blog
+  - name: postgresql
     databaseName: alpha-blog
-    user: alpha-blog
+    user: alphablog
 
 services:
   - type: web
