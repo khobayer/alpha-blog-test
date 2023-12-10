@@ -1,0 +1,20 @@
+<h1>Create new article</h1>
+
+<%= form_with scope: :articale, url: articles_path, local: true do |t| %>
+
+    <p>
+        <%= t.label :title %>
+        <br>
+        <%= t.text_field :title %>
+    </p>
+
+    <p>
+        <%= t.label :description %>
+        <br>
+        <%= t.text_area :description %>
+    </p>
+
+    <p>
+        <%= t.submit %>
+    </p>
+<% end %>
