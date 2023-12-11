@@ -1,25 +1,45 @@
 class ArticlesController < ApplicationController
   
     def show
-        @article = Articale.find(params[:id])
+        @article = Article.find(params[:id])
     end
 
     def index
-        @articles = Articale.all
+        @articles = Article.all
     end
 
     def new
-        @article = Articale.new
+        @article = Article.new
+    end
+
+    def edit
+        @article = Article.find(params[:id])
     end
 
     def create
-        @article = Articale.new(params.require(:articale).permit(:title, :description))
+        @article = Article.new(params.require(:article).permit(:title, :description))
         if @article.save
             flash[:notice] = "Article was successfully added"
             redirect_to article_path(@article)
         else
             render 'new', status: :unprocessable_entity
         end
+    end
+
+    def update
+        @article = Article.find(params[:id])
+        if @article.update(params.require(:article).permit(:title, :description))
+            flash[:notice] = "Article was successfully Updated"
+            redirect_to article_path(@article)
+        else
+            render 'edit', status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        redirect_to article_path
     end
 
 end
