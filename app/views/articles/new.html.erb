@@ -1,5 +1,14 @@
 <h1>Create new article</h1>
 
+<% if @article.errors.any? %>
+    <h3>For these resons you can not create article</h3>
+    <ul>
+        <% @article.errors.full_messages.each do |msg|%>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_with scope: :articale, url: articles_path, local: true do |t| %>
 
     <p>
@@ -17,4 +26,5 @@
     <p>
         <%= t.submit %>
     </p>
+    
 <% end %>
