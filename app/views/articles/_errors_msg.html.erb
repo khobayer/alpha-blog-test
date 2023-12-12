@@ -1,0 +1,8 @@
+<% if @article.errors.any? %>
+    <h3>For these resons you can not create article</h3>
+    <ul>
+        <% @article.errors.full_messages.each do |msg|%>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>

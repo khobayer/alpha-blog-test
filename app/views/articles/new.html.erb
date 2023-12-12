@@ -1,32 +1,6 @@
 <h1>Create new article</h1>
 
-<% if @article.errors.any? %>
-    <h3>For these resons you can not create article</h3>
-    <ul>
-        <% @article.errors.full_messages.each do |msg|%>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_with scope: :article, url: articles_path, local: true do |t| %>
-
-    <p>
-        <%= t.label :title %>
-        <br>
-        <%= t.text_field :title %>
-    </p>
-
-    <p>
-        <%= t.label :description %>
-        <br>
-        <%= t.text_area :description %>
-    </p>
-
-    <p>
-        <%= t.submit %>
-    </p>
-    
-<% end %>
+<%= render 'errors_msg' %>
+<%= render 'form' %>
 
 <%= link_to 'Back to article list', articles_path %>
