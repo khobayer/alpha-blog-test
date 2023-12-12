@@ -9,7 +9,7 @@
     </ul>
 <% end %>
 
-<%= form_with scope: :articale, url: articles_path, local: true do |t| %>
+<%= form_with scope: :article, url: articles_path, local: true do |t| %>
 
     <p>
         <%= t.label :title %>
@@ -28,3 +28,5 @@
     </p>
     
 <% end %>
+
+<%= link_to 'Back to article list', articles_path %>
